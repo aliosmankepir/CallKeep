@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import {acceptUrl, declineUrl} from '../general/url';
 import BackgroundTimer from 'react-native-background-timer';
-import {secondsToTime} from '../general/helper';
+import {findUser, secondsToTime} from '../general/helper';
 import styles from '../style/Call.style';
 import {CallContext, UserContext} from '../context';
 import RNCallKeep from 'react-native-callkeep';
@@ -25,8 +25,6 @@ const Call = ({route, navigation}) => {
   const [reject, setReject] = useState(false);
   const [user, setUser] = useState();
   const isCall = calls.length > 0;
-
-  const findUser = uuid => users.find(u => u.login.uuid === uuid);
 
   const endAllCalls = () => RNCallKeep.endAllCalls();
 
@@ -57,6 +55,7 @@ const Call = ({route, navigation}) => {
 
   const handleAccept = () => {
     setCall(user.login.uuid);
+    RNCallKeep.startCall(callUUID, user.phone, user.phone, 'number', false);
   };
 
   useEffect(() => {
@@ -66,7 +65,7 @@ const Call = ({route, navigation}) => {
   }, [isCall]);
 
   useEffect(() => {
-    const _user = findUser(callUUID);
+    const _user = findUser(callUUID, users);
     setUser(_user);
   }, []);
 

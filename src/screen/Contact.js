@@ -1,10 +1,5 @@
-import React, {
-  useLayoutEffect,
-  useState,
-  useEffect,
-  useContext,
-} from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import React, {useLayoutEffect, useState, useEffect, useContext} from 'react';
+import {Platform, Text, TouchableOpacity, View} from 'react-native';
 import RNCallKeep from 'react-native-callkeep';
 import BackgroundTimer from 'react-native-background-timer';
 import {UserList} from '../component';
@@ -15,7 +10,7 @@ BackgroundTimer.start();
 
 RNCallKeep.setup({
   ios: {
-    appName: 'CallKeepDemo',
+    appName: 'CallKeep',
   },
   android: {
     alertTitle: 'Permissions required',
@@ -25,17 +20,20 @@ RNCallKeep.setup({
   },
 });
 
+const isIOS = Platform.OS === 'ios';
+
 const Contact = ({navigation}) => {
   const [isCustom, setIsCustom] = useState(true);
   const {setCall} = useContext(CallContext);
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerRight: () => (
-        <TouchableOpacity onPress={handleSwitch}>
-          <Text>Switch({isCustom ? 'C' : 'N'})</Text>
-        </TouchableOpacity>
-      ),
+      headerRight: () =>
+        isIOS && (
+          <TouchableOpacity onPress={handleSwitch}>
+            <Text>Switch({isCustom ? 'C' : 'N'})</Text>
+          </TouchableOpacity>
+        ),
     });
   }, [navigation, isCustom]);
 

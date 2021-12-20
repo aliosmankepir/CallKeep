@@ -5384,10 +5384,10 @@
   "resolved" "https://registry.npmjs.org/react-native-background-timer/-/react-native-background-timer-2.4.1.tgz"
   "version" "2.4.1"
 
-"react-native-callkeep@^4.3.1":
-  "integrity" "sha512-ezFd0ch0m81V6INUnJeyyy6WNpoUreb3heFq64F4elzGOdoVhY2m2Z/wJNin7b/zBZwKk8sEXlBXoNhW+GjDVg=="
-  "resolved" "https://registry.npmjs.org/react-native-callkeep/-/react-native-callkeep-4.3.1.tgz"
-  "version" "4.3.1"
+"react-native-callkeep@^3.0.7":
+  "integrity" "sha512-gzusmv6r5APwR+TlZRCepnmLI2NQZzOhQb3OYI3msvqCu0fBMnX00L3GjTQkJ2cj7goLrfwZwpzUpt2mW6EGEw=="
+  "resolved" "https://registry.npmjs.org/react-native-callkeep/-/react-native-callkeep-3.1.4.tgz"
+  "version" "3.1.4"
 
 "react-native-codegen@^0.0.7":
   "integrity" "sha512-dwNgR8zJ3ALr480QnAmpTiqvFo+rDtq6V5oCggKhYFlRjzOmVSFn3YD41u8ltvKS5G2nQ8gCs2vReFFnRGLYng=="

@@ -11,3 +11,5 @@ export const secondsToTime = e => {
 
   return h + ':' + m + ':' + s;
 };
+
+export const findUser = (uuid, users) => users.find(u => u.login.uuid === uuid);
